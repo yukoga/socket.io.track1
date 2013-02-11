@@ -1,0 +1,19 @@
+{
+	"name" : "socket.io.track1",
+	"version" : "0.0.1",
+	"description" : "sample apps for realtime access tracking by socket.io",
+	"keywords" : ["test", "tutorial", "socket.io"],
+	"author" : "ykoga",
+	"main" : "index",
+	"engines" : {"node" : ">=0.0.1"},
+	"scripts" : {
+		"test" : "make test"
+	},
+	"dependencies" : {
+		"socket.io": "*"
+	},
+	"devDependencies" : {
+		"mocha" : "1.8.x",
+		"should" : "*"
+	}
+}

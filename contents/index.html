@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+	var socket = io.connect('http://localhost:8012');
+	socket.on('Initialdata', function (data) {
+		console.log(data);
+	});
+	socket.on('recieveMessage', function (data) {
+		appendMessage(data.msg);
+	});
+	
+	function sendMessage () {
+		var message = document.getElementById('text').value;
+		socket.emit('sendMessage', { msg: message });
+		appendMessage(message);
+	}
+
+	function appendMessage(text) {
+		var div = document.getElementById('messages');
+		var newcontent = document.createElement('div');
+		newcontent.innerHTML = text;
+		div.appendChild(newcontent);
+	}
+	</script>
+</head>
+<body>
+socket.ioのテスト        
+<div id="messages">
+</div>
+<input id="text" type="text" />
+<input type="button" onclick="sendMessage()" value="send" />
+</body>
+</html>
